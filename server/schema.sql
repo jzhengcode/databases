@@ -2,6 +2,7 @@ CREATE DATABASE chat;
 
 USE chat;
 
+DROP TABLE IF EXISTS messages;
 CREATE TABLE messages (
   /*
   user_id column - foreign key of users.id
@@ -19,7 +20,7 @@ CREATE TABLE messages (
   FOREIGN KEY (room_id) REFERENCES rooms(room_id)
 );
 
-/* Create other tables and define schemas for them here! */
+DROP TABLE IF EXISTS users;
 CREATE TABLE users (
   /*
   id (integer, auto increment) - primary key
@@ -30,6 +31,7 @@ CREATE TABLE users (
   user_name VARCHAR(20)
 );
 
+DROP TABLE IF EXISTS friends;
 CREATE TABLE friends (
   /*
   user1_id (integer) - foreign key of names.id
@@ -41,6 +43,7 @@ CREATE TABLE friends (
   FOREIGN KEY (user2_id) REFERENCES users(id)
 );
 
+DROP TABLE IF EXISTS rooms;
 CREATE TABLE rooms (
   /*
   room_id (integer, auto increment) - Primary key
