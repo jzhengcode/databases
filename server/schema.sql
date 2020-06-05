@@ -26,17 +26,6 @@ CREATE TABLE friends (
   FOREIGN KEY (user2_id) REFERENCES users(id)
 );
 
-DROP TABLE IF EXISTS rooms;
-CREATE TABLE rooms (
-  /*
-  room_id (integer, auto increment) - Primary key
-  room_name (varchar 20)
-  */
-  room_id INT AUTO_INCREMENT,
-  room_name VARCHAR(20),
-  PRIMARY KEY (room_id)
-);
-
 DROP TABLE IF EXISTS messages;
 CREATE TABLE messages (
   /*
@@ -50,9 +39,8 @@ CREATE TABLE messages (
   chat_id VARCHAR(20),
   chat_text VARCHAR(1000) NULL,
   msg_time VARCHAR(20),
-  room_id INT,
-  FOREIGN KEY (user_id) REFERENCES users(id),
-  FOREIGN KEY (room_id) REFERENCES rooms(room_id)
+  roomname VARCHAR(20),
+  FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
 
